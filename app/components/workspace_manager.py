@@ -85,6 +85,9 @@ def list_saved_artifacts(workspace_dir: Path = WORKSPACE_DIR) -> list[SavedArtif
     for path in sorted(workspace.rglob("*.md")):
         if not path.is_file():
             continue
+        relative_parts = path.relative_to(workspace).parts
+        if relative_parts and relative_parts[0] in {"context", "decisions"}:
+            continue
         stat = path.stat()
         artifacts.append(
             SavedArtifact(
