@@ -1,0 +1,33 @@
+id: test-scenario-builder
+title: Test Scenario Builder
+description: Convert requirements and stories into linked test scenarios.
+trigger_phrases:
+  - use test-scenario-builder
+  - run test scenario builder
+  - convert requirements and stories into linked test scenarios
+input_types:
+  - stakeholder notes
+  - requirements
+  - backlog items
+  - system context
+  - decision logs
+outputs:
+  - Test scenario ID
+  - Requirement reference
+  - Story reference
+  - Preconditions
+  - Test data
+  - Steps
+  - Expected result
+  - Priority
+  - Regression impact
+  - UAT notes
+quality_gates:
+  - Cover happy path, negative path, boundary, exception, and regression cases.
+  - Make expected results explicit.
+  - Link each scenario back to a requirement or story.
+related_templates:
+  - test-scenario-template.md
+recommended_role_packs:
+  - business-analyst
+  - hybrid-ba-po

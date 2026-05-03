@@ -1,0 +1,7 @@
+# Product Delivery OS Codex Instructions
+
+This repository uses Product Delivery OS as an AI-agnostic BA/PO delivery operating system. Codex is a contributor tool, not the source of truth.
+
+Follow `core/operating-manual.md`, use role packs when relevant, and run workflow playbooks from `workflows/`.
+
+Do not commit confidential data. Do not mark work delivery-ready when critical open questions remain.

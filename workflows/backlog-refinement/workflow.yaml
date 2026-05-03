@@ -1,0 +1,34 @@
+id: backlog-refinement
+title: Backlog Refinement
+description: Assess whether backlog items are ready for delivery planning.
+trigger_phrases:
+  - use backlog-refinement
+  - run backlog refinement
+  - assess whether backlog items are ready for delivery planning
+input_types:
+  - stakeholder notes
+  - requirements
+  - backlog items
+  - system context
+  - decision logs
+outputs:
+  - Readiness result
+  - Refinement notes
+  - Questions for business
+  - Questions for technology
+  - Suggested story slices
+  - Recommended next action
+quality_gates:
+  - Check business value.
+  - Check scope clarity.
+  - Check story size.
+  - Check dependencies.
+  - Check acceptance criteria.
+  - Check testability.
+  - Check priority.
+  - Check Definition of Ready.
+related_templates:
+  - jira-story-template.md
+recommended_role_packs:
+  - product-owner
+  - hybrid-ba-po

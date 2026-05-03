@@ -1,0 +1,41 @@
+id: story-builder
+title: Story Builder
+description: Convert requirements into JIRA-ready stories with clear acceptance criteria.
+trigger_phrases:
+  - use story-builder
+  - run story builder
+  - convert requirements into jira-ready stories with clear acceptance criteria
+input_types:
+  - stakeholder notes
+  - requirements
+  - backlog items
+  - system context
+  - decision logs
+outputs:
+  - Epic
+  - Feature
+  - User story
+  - Business value
+  - Preconditions
+  - Acceptance criteria
+  - Negative scenarios
+  - Dependencies
+  - Assumptions
+  - Out of scope
+  - Test notes
+  - Traceability reference
+  - Readiness status
+quality_gates:
+  - Do not create vague stories.
+  - Use As a / I want / So that where appropriate.
+  - Allow technical stories for system-to-system work.
+  - Every story must include acceptance criteria.
+  - Flag oversized stories and suggest slices.
+  - Do not mark a story ready if open questions remain.
+related_templates:
+  - jira-story-template.md
+  - acceptance-criteria-template.md
+recommended_role_packs:
+  - business-analyst
+  - product-owner
+  - hybrid-ba-po

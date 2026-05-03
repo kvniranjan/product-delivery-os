@@ -1,0 +1,32 @@
+id: acceptance-criteria
+title: Acceptance Criteria
+description: Generate observable, testable acceptance criteria using Gherkin where helpful.
+trigger_phrases:
+  - use acceptance-criteria
+  - run acceptance criteria
+  - generate observable, testable acceptance criteria using gherkin where helpful
+input_types:
+  - stakeholder notes
+  - requirements
+  - backlog items
+  - system context
+  - decision logs
+outputs:
+  - Positive scenarios
+  - Negative scenarios
+  - Boundary scenarios
+  - Exception scenarios
+  - Access/security scenarios
+  - Integration failure scenarios
+  - Audit/logging scenarios
+quality_gates:
+  - Avoid vague Then statements like system works correctly.
+  - Make expected outcomes observable.
+  - Include data validation where relevant.
+  - Include error handling where relevant.
+related_templates:
+  - acceptance-criteria-template.md
+recommended_role_packs:
+  - business-analyst
+  - product-owner
+  - hybrid-ba-po

@@ -1,0 +1,7 @@
+---
+description: Product Delivery OS Acceptance Criteria workflow
+globs: **/*
+alwaysApply: false
+---
+
+When asked for acceptance criteria, follow `workflows/acceptance-criteria/instructions.md` and use `workflows/acceptance-criteria/output-template.md`.

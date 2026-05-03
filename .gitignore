@@ -1,0 +1,14 @@
+workspace/
+user-data/
+company-data/
+.env
+.env.*
+secrets/
+transcripts/
+meeting-recordings/
+exports/
+*.log
+__pycache__/
+.pytest_cache/
+dist/
+.DS_Store

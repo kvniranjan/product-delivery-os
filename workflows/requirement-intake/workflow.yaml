@@ -1,0 +1,41 @@
+id: requirement-intake
+title: Requirement Intake
+description: Convert raw stakeholder input into structured, testable requirements.
+trigger_phrases:
+  - use requirement-intake
+  - run requirement intake
+  - convert raw stakeholder input into structured, testable requirements
+input_types:
+  - stakeholder notes
+  - requirements
+  - backlog items
+  - system context
+  - decision logs
+outputs:
+  - Problem statement
+  - Business objective
+  - Current state
+  - Future state
+  - Functional requirements
+  - Non-functional requirements
+  - Business rules
+  - Assumptions
+  - Dependencies
+  - Risks
+  - Open questions
+  - Out of scope
+  - Acceptance criteria starter
+  - Suggested next steps
+quality_gates:
+  - Do not invent missing business rules.
+  - Separate facts from assumptions.
+  - Flag ambiguity.
+  - Identify missing stakeholders or systems.
+  - Make requirements testable.
+related_templates:
+  - brd-template.md
+  - frd-template.md
+  - acceptance-criteria-template.md
+recommended_role_packs:
+  - business-analyst
+  - hybrid-ba-po

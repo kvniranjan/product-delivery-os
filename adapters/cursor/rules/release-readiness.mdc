@@ -1,0 +1,7 @@
+---
+description: Product Delivery OS Release Readiness workflow
+globs: **/*
+alwaysApply: false
+---
+
+When asked for release readiness, follow `workflows/release-readiness/instructions.md` and use `workflows/release-readiness/output-template.md`.

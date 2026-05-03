@@ -1,0 +1,7 @@
+---
+description: Product Delivery OS Story Builder workflow
+globs: **/*
+alwaysApply: false
+---
+
+When asked for story builder, follow `workflows/story-builder/instructions.md` and use `workflows/story-builder/output-template.md`.

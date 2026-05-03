@@ -1,0 +1,38 @@
+id: change-request-analysis
+title: Change Request Analysis
+description: Analyze scope changes without confusing recommendation with approval.
+trigger_phrases:
+  - use change-request-analysis
+  - run change request analysis
+  - analyze scope changes without confusing recommendation with approval
+input_types:
+  - stakeholder notes
+  - requirements
+  - backlog items
+  - system context
+  - decision logs
+outputs:
+  - Original requirement
+  - Requested change
+  - Reason for change
+  - Impacted stories
+  - Impacted systems
+  - Effort impact
+  - Timeline impact
+  - Testing impact
+  - Operational impact
+  - Risks
+  - Options
+  - Recommendation
+  - Decision owner
+quality_gates:
+  - Separate business justification from implementation impact.
+  - Identify timeline and testing impact.
+  - Do not approve the change; recommend and identify decision owner.
+related_templates:
+  - change-request-template.md
+  - impact-analysis-template.md
+recommended_role_packs:
+  - business-analyst
+  - product-owner
+  - hybrid-ba-po

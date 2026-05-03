@@ -1,0 +1,30 @@
+id: traceability-check
+title: Traceability Check
+description: Find gaps across requirements, stories, acceptance criteria, tests, defects, and decisions.
+trigger_phrases:
+  - use traceability-check
+  - run traceability check
+  - find gaps across requirements, stories, acceptance criteria, tests, defects, and decisions
+input_types:
+  - stakeholder notes
+  - requirements
+  - backlog items
+  - system context
+  - decision logs
+outputs:
+  - Traceability score
+  - Gap table
+  - Critical blockers
+  - Recommended fixes
+quality_gates:
+  - Identify requirements without stories.
+  - Identify stories without acceptance criteria.
+  - Identify acceptance criteria without test scenarios.
+  - Identify test scenarios without requirement links.
+  - Identify decisions not logged.
+  - Identify orphaned artifacts and missing signoff.
+related_templates:
+  - traceability-matrix-template.md
+recommended_role_packs:
+  - business-analyst
+  - hybrid-ba-po

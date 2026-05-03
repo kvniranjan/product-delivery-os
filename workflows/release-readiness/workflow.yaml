@@ -1,0 +1,36 @@
+id: release-readiness
+title: Release Readiness
+description: Assess go-live readiness and residual risk.
+trigger_phrases:
+  - use release-readiness
+  - run release readiness
+  - assess go-live readiness and residual risk
+input_types:
+  - stakeholder notes
+  - requirements
+  - backlog items
+  - system context
+  - decision logs
+outputs:
+  - Requirements signed off
+  - Stories complete
+  - QA status
+  - UAT status
+  - Open defects
+  - Known limitations
+  - Operational readiness
+  - Support handover
+  - Rollback considerations
+  - Communication readiness
+  - Go/No-Go recommendation
+quality_gates:
+  - Do not recommend Go if critical defects, missing signoff, or unresolved production risks exist.
+  - Identify residual risk.
+  - Separate readiness facts from recommendation.
+related_templates:
+  - release-readiness-template.md
+  - uat-signoff-template.md
+recommended_role_packs:
+  - product-owner
+  - hybrid-ba-po
+  - business-analyst

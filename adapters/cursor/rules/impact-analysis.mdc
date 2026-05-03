@@ -1,0 +1,7 @@
+---
+description: Product Delivery OS Impact Analysis workflow
+globs: **/*
+alwaysApply: false
+---
+
+When asked for impact analysis, follow `workflows/impact-analysis/instructions.md` and use `workflows/impact-analysis/output-template.md`.

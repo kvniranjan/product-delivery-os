@@ -1,0 +1,7 @@
+---
+description: Product Delivery OS Requirement Intake workflow
+globs: **/*
+alwaysApply: false
+---
+
+When asked for requirement intake, follow `workflows/requirement-intake/instructions.md` and use `workflows/requirement-intake/output-template.md`.

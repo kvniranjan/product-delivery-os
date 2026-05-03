@@ -1,0 +1,43 @@
+id: impact-analysis
+title: Impact Analysis
+description: Analyze system, data, operational, delivery, and regression impact.
+trigger_phrases:
+  - use impact-analysis
+  - run impact analysis
+  - analyze system, data, operational, delivery, and regression impact
+input_types:
+  - stakeholder notes
+  - requirements
+  - backlog items
+  - system context
+  - decision logs
+outputs:
+  - Impacted applications
+  - Upstream systems
+  - Downstream systems
+  - Interface/API impact
+  - Data impact
+  - UI impact
+  - Batch/EOD impact
+  - Accounting/GL impact
+  - Reporting impact
+  - Security/access impact
+  - Operational impact
+  - Regression areas
+  - UAT impact
+  - Risks
+  - Open questions
+  - Recommendation
+quality_gates:
+  - Always include upstream/downstream analysis.
+  - Always include regression impact.
+  - Include accounting/GL and EOD sections even if marked Not applicable / Unknown.
+  - Separate confirmed impacts from suspected impacts.
+  - Include follow-up questions where impact is unclear.
+related_templates:
+  - impact-analysis-template.md
+  - data-mapping-template.md
+recommended_role_packs:
+  - business-analyst
+  - hybrid-ba-po
+  - core-banking

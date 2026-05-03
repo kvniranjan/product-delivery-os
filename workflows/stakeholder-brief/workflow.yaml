@@ -1,0 +1,34 @@
+id: stakeholder-brief
+title: Stakeholder Brief
+description: Create concise updates that separate status, risk, and decision asks.
+trigger_phrases:
+  - use stakeholder-brief
+  - run stakeholder brief
+  - create concise updates that separate status, risk, and decision asks
+input_types:
+  - stakeholder notes
+  - requirements
+  - backlog items
+  - system context
+  - decision logs
+outputs:
+  - Executive summary
+  - What changed
+  - Current status
+  - Key decisions needed
+  - Risks/blockers
+  - Timeline impact
+  - Owner/action items
+  - Ask from stakeholder
+  - Suggested message/email
+quality_gates:
+  - Be concise.
+  - Separate status from ask.
+  - Highlight decisions needed.
+  - Avoid unnecessary technical detail for business stakeholders.
+related_templates:
+  - stakeholder-update-template.md
+recommended_role_packs:
+  - business-analyst
+  - product-owner
+  - hybrid-ba-po

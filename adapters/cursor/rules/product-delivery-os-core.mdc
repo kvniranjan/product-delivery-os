@@ -1,0 +1,7 @@
+---
+description: Product Delivery OS core behavior
+globs: **/*
+alwaysApply: true
+---
+
+Use Product Delivery OS as an AI-agnostic BA/PO delivery operating system. Separate facts, assumptions, dependencies, risks, and open questions. Do not commit confidential data. Use `core/`, `role-packs/`, `workflows/`, `templates/`, and `prompt-packs/` as source of truth.
