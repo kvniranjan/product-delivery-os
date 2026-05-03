@@ -2,42 +2,45 @@
 
 ## Purpose
 
-Convert requirements and stories into linked test scenarios.
+Convert requirements and stories into traceable test scenarios for QA, UAT, and regression planning.
 
 ## When to Use
 
-Use this workflow when a delivery team needs a structured, reviewable artifact for test scenario builder.
+- A story or requirement needs test coverage.
+- UAT needs business-readable scenarios.
+- Regression scope must be identified before release.
 
 ## Inputs Needed
 
-- Raw stakeholder input or existing artifact.
-- Product, process, system, and data context.
-- Known constraints, dates, owners, and dependencies.
-- Existing decisions, risks, defects, or open questions.
+- Requirement and story references
+- Acceptance criteria
+- Business rules and data rules
+- User roles and permissions
+- System and integration context
+- Known defects, regression areas, and UAT concerns
 
 ## Step-by-Step Process
 
-1. Restate the request in plain language.
-2. Separate confirmed facts from assumptions.
-3. Identify missing business rules, stakeholders, systems, and data.
-4. Build the required output sections.
-5. Check testability and traceability.
-6. List risks, dependencies, and open questions.
-7. Recommend next steps without approving business decisions.
+1. Assign scenario IDs and link each scenario to a requirement or story.
+2. Cover happy path, negative path, boundary, exception, access/security, integration failure, audit/logging, and regression cases where relevant.
+3. Define preconditions, test data, steps, expected result, priority, and UAT notes.
+4. Make expected results explicit and observable.
+5. Flag missing test data, environment needs, approvals, or unclear outcomes.
 
 ## Output Format
 
-Use `output-template.md` in this folder unless the user requests another format.
+Use `output-template.md` in this folder. Keep the output concise enough for review, but detailed enough that business, technology, QA, and delivery stakeholders can act on it.
 
 ## Quality Checks
 
-- Cover happy path, negative path, boundary, exception, and regression cases.
-- Make expected results explicit.
-- Link each scenario back to a requirement or story.
+- Confirmed facts are separated from assumptions.
+- Dependencies, risks, and open questions are visible.
+- Missing information is flagged instead of filled in silently.
+- The output identifies human decisions or approvals needed.
+- The output can be traced to source input.
 
 ## What Not To Do
 
-- Do not invent missing details.
-- Do not hide uncertainty.
-- Do not mark work ready when critical open questions remain.
-- Do not skip traceability or testability checks.
+- Do not create scenarios without requirement or story links.
+- Do not use expected results like passes or works.
+- Do not ignore regression impact.

@@ -2,42 +2,46 @@
 
 ## Purpose
 
-Analyze scope changes without confusing recommendation with approval.
+Analyze proposed scope changes and recommend accept, reject, defer, or split without approving the change.
 
 ## When to Use
 
-Use this workflow when a delivery team needs a structured, reviewable artifact for change request analysis.
+- A stakeholder asks to add, remove, or change scope.
+- A change may affect timeline, testing, cost, risk, operations, or release readiness.
+- The team needs options for decision-making.
 
 ## Inputs Needed
 
-- Raw stakeholder input or existing artifact.
-- Product, process, system, and data context.
-- Known constraints, dates, owners, and dependencies.
-- Existing decisions, risks, defects, or open questions.
+- Original requirement or baseline scope
+- Requested change and reason
+- Impacted stories, systems, reports, data, controls, users, and operations
+- Delivery timeline, release window, and dependencies
+- Testing and regression scope
+- Decision owner and approval process
 
 ## Step-by-Step Process
 
-1. Restate the request in plain language.
-2. Separate confirmed facts from assumptions.
-3. Identify missing business rules, stakeholders, systems, and data.
-4. Build the required output sections.
-5. Check testability and traceability.
-6. List risks, dependencies, and open questions.
-7. Recommend next steps without approving business decisions.
+1. Restate original requirement and requested change.
+2. Separate business justification from implementation impact.
+3. Identify impacted stories, systems, data, operations, testing, timeline, and risk.
+4. Provide options such as accept now, defer, split, reject, or run spike.
+5. State recommendation with rationale and residual risk.
+6. Identify the decision owner and approval needed.
 
 ## Output Format
 
-Use `output-template.md` in this folder unless the user requests another format.
+Use `output-template.md` in this folder. Keep the output concise enough for review, but detailed enough that business, technology, QA, and delivery stakeholders can act on it.
 
 ## Quality Checks
 
-- Separate business justification from implementation impact.
-- Identify timeline and testing impact.
-- Do not approve the change; recommend and identify decision owner.
+- Confirmed facts are separated from assumptions.
+- Dependencies, risks, and open questions are visible.
+- Missing information is flagged instead of filled in silently.
+- The output identifies human decisions or approvals needed.
+- The output can be traced to source input.
 
 ## What Not To Do
 
-- Do not invent missing details.
-- Do not hide uncertainty.
-- Do not mark work ready when critical open questions remain.
-- Do not skip traceability or testability checks.
+- Do not approve the change.
+- Do not ignore timeline and testing impact.
+- Do not treat business urgency as proof of implementation feasibility.

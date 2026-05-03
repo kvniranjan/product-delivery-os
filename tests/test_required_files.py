@@ -19,3 +19,17 @@ def test_readme_attribution_and_privacy():
     assert "## Inspiration" in readme
     assert "Nate Herk" in readme
     assert "Privacy Warning" in readme
+    assert "not affiliated with Nate Herk" in readme
+    for tool in ["ChatGPT", "Claude web", "Gemini", "Codex", "Claude Code", "Cursor", "Generic AI"]:
+        assert tool in readme
+
+
+def test_templates_are_not_generic_placeholders():
+    banned = [
+        "Use when the team needs a structured document that can be reviewed",
+        "Example placeholder title",
+    ]
+    for path in (ROOT / "templates").glob("*.md"):
+        text = path.read_text()
+        for phrase in banned:
+            assert phrase not in text, f"{path} contains placeholder phrase: {phrase}"

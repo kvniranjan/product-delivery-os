@@ -48,6 +48,23 @@ REQUIRED_TEMPLATES = [
     "uat-signoff-template.md",
     "release-readiness-template.md",
 ]
+SUPPORTED_TOOL_MARKERS = [
+    "ChatGPT",
+    "Claude web",
+    "Gemini",
+    "Codex",
+    "Claude Code",
+    "Cursor",
+    "Generic AI",
+]
+PRIVACY_MARKERS = [
+    "client data",
+    "company data",
+    "customer data",
+    "production data",
+    "credentials",
+    "workspace/",
+]
 
 
 def read_manifest(path: Path) -> dict:
@@ -109,6 +126,24 @@ def validate() -> list[str]:
         fail(errors, "README missing Inspiration attribution")
     if "Privacy Warning" not in readme:
         fail(errors, "README missing Privacy warning")
+    for marker in SUPPORTED_TOOL_MARKERS:
+        if marker not in readme:
+            fail(errors, f"README missing supported tool marker: {marker}")
+    for marker in PRIVACY_MARKERS:
+        if marker not in readme:
+            fail(errors, f"README privacy section missing marker: {marker}")
+    if "not affiliated with Nate Herk" not in readme:
+        fail(errors, "README missing non-affiliation statement")
+    generic_phrases = [
+        "Use when the team needs a structured document that can be reviewed",
+        "Example placeholder title",
+        "Use this workflow when a delivery team needs a structured, reviewable artifact",
+    ]
+    for path in list((ROOT / "templates").glob("*.md")) + list((ROOT / "workflows").glob("*/instructions.md")):
+        text = path.read_text(encoding="utf-8")
+        for phrase in generic_phrases:
+            if phrase in text:
+                fail(errors, f"{path.relative_to(ROOT)} still contains generic placeholder phrase: {phrase}")
     if not (ROOT / "LICENSE").is_file():
         fail(errors, "LICENSE missing")
     return errors

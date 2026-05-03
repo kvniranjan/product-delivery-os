@@ -2,45 +2,47 @@
 
 ## Purpose
 
-Convert requirements into JIRA-ready stories with clear acceptance criteria.
+Convert requirements into JIRA-ready stories that are clear, testable, and small enough for delivery planning.
 
 ## When to Use
 
-Use this workflow when a delivery team needs a structured, reviewable artifact for story builder.
+- A structured requirement needs to become backlog work.
+- A large story needs splitting.
+- A system-to-system change needs a technical story with business traceability.
 
 ## Inputs Needed
 
-- Raw stakeholder input or existing artifact.
-- Product, process, system, and data context.
-- Known constraints, dates, owners, and dependencies.
-- Existing decisions, risks, defects, or open questions.
+- Requirement or feature reference
+- User, role, system actor, or operational actor
+- Business value and priority
+- Preconditions and business rules
+- Dependencies and impacted systems
+- Acceptance criteria inputs and test notes
 
 ## Step-by-Step Process
 
-1. Restate the request in plain language.
-2. Separate confirmed facts from assumptions.
-3. Identify missing business rules, stakeholders, systems, and data.
-4. Build the required output sections.
-5. Check testability and traceability.
-6. List risks, dependencies, and open questions.
-7. Recommend next steps without approving business decisions.
+1. Identify whether the item is a user story, technical story, spike, defect, or enabler.
+2. Write the story in As a / I want / So that format when there is a user or business actor.
+3. Use a technical story format for system-to-system work while preserving business value.
+4. Add preconditions, dependencies, assumptions, out-of-scope items, and traceability reference.
+5. Write acceptance criteria with positive, negative, and exception coverage.
+6. Assess story size and suggest slices if the item contains multiple flows, systems, rules, or user types.
+7. Set readiness status: Ready, Not Ready, Needs Clarification, Needs Splitting, or Needs Technical Spike.
 
 ## Output Format
 
-Use `output-template.md` in this folder unless the user requests another format.
+Use `output-template.md` in this folder. Keep the output concise enough for review, but detailed enough that business, technology, QA, and delivery stakeholders can act on it.
 
 ## Quality Checks
 
-- Do not create vague stories.
-- Use As a / I want / So that where appropriate.
-- Allow technical stories for system-to-system work.
-- Every story must include acceptance criteria.
-- Flag oversized stories and suggest slices.
-- Do not mark a story ready if open questions remain.
+- Confirmed facts are separated from assumptions.
+- Dependencies, risks, and open questions are visible.
+- Missing information is flagged instead of filled in silently.
+- The output identifies human decisions or approvals needed.
+- The output can be traced to source input.
 
 ## What Not To Do
 
-- Do not invent missing details.
-- Do not hide uncertainty.
-- Do not mark work ready when critical open questions remain.
-- Do not skip traceability or testability checks.
+- Do not create a story without acceptance criteria.
+- Do not mark Ready when open questions affect scope, testing, or implementation.
+- Do not bury multiple independent outcomes in one story.

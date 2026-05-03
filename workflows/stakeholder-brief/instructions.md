@@ -2,43 +2,46 @@
 
 ## Purpose
 
-Create concise updates that separate status, risk, and decision asks.
+Create concise stakeholder updates that separate status, decision asks, risks, blockers, and next actions.
 
 ## When to Use
 
-Use this workflow when a delivery team needs a structured, reviewable artifact for stakeholder brief.
+- A PO, BA, delivery manager, or stakeholder needs a clear update.
+- There is a change in scope, timeline, risk, readiness, or decision status.
+- A business stakeholder needs an email or meeting brief without technical noise.
 
 ## Inputs Needed
 
-- Raw stakeholder input or existing artifact.
-- Product, process, system, and data context.
-- Known constraints, dates, owners, and dependencies.
-- Existing decisions, risks, defects, or open questions.
+- Audience and stakeholder role
+- Current status and date
+- What changed since last update
+- Decisions needed and decision owners
+- Risks, blockers, timeline impact, and owners
+- Requested tone and communication channel
 
 ## Step-by-Step Process
 
-1. Restate the request in plain language.
-2. Separate confirmed facts from assumptions.
-3. Identify missing business rules, stakeholders, systems, and data.
-4. Build the required output sections.
-5. Check testability and traceability.
-6. List risks, dependencies, and open questions.
-7. Recommend next steps without approving business decisions.
+1. Start with the one-paragraph executive summary.
+2. Separate what changed from current status.
+3. List decisions needed with owner, due date, and consequence of no decision.
+4. Summarize risks and blockers in business language.
+5. State timeline impact only when supported by facts.
+6. Write a suggested message or email tailored to the audience.
 
 ## Output Format
 
-Use `output-template.md` in this folder unless the user requests another format.
+Use `output-template.md` in this folder. Keep the output concise enough for review, but detailed enough that business, technology, QA, and delivery stakeholders can act on it.
 
 ## Quality Checks
 
-- Be concise.
-- Separate status from ask.
-- Highlight decisions needed.
-- Avoid unnecessary technical detail for business stakeholders.
+- Confirmed facts are separated from assumptions.
+- Dependencies, risks, and open questions are visible.
+- Missing information is flagged instead of filled in silently.
+- The output identifies human decisions or approvals needed.
+- The output can be traced to source input.
 
 ## What Not To Do
 
-- Do not invent missing details.
-- Do not hide uncertainty.
-- Do not mark work ready when critical open questions remain.
-- Do not skip traceability or testability checks.
+- Do not bury the ask.
+- Do not include unnecessary technical detail for business stakeholders.
+- Do not imply approval or commitment that has not happened.

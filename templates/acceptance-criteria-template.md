@@ -2,63 +2,48 @@
 
 ## Purpose
 
-Use this template to create a consistent, reviewable acceptance criteria artifact.
-
-## When to Use
-
-Use when the team needs a structured document that can be reviewed, tested, traced, and approved.
+Define observable conditions that prove a story or requirement is acceptable.
 
 ## Required Fields
 
 | Field | Placeholder |
 |---|---|
-| Artifact ID | `ACC-001` |
-| Title | Example placeholder title |
-| Owner | Name or role |
-| Status | Draft / In Review / Approved |
-| Date | YYYY-MM-DD |
-| Source | Requirement, story, stakeholder, or decision reference |
+| Story or requirement reference | `STORY-001` |
+| Scenario owner | BA / PO / QA |
+| Status | Draft / Reviewed / Approved |
 
-## Optional Fields
+## Scenarios
 
-- Related systems
-- Related decisions
-- Related risks
-- Attachments or links
-- Reviewer notes
+### Positive Scenario
 
-## Structured Sections
+```gherkin
+Given <valid precondition>
+When <user or system action occurs>
+Then <observable expected result occurs>
+And <data, audit, integration, or notification outcome is recorded>
+```
 
-### Context
+### Negative Scenario
 
-Describe the business context in plain language.
+```gherkin
+Given <invalid or unauthorized condition>
+When <action is attempted>
+Then <action is rejected or blocked>
+And <clear reason or audit event is available>
+```
 
-### Details
+### Boundary Scenario
 
-| Item | Description | Owner | Status |
-|---|---|---|---|
-| Example item | Example placeholder text | Product Owner | Draft |
-
-### Assumptions
-
-- Example assumption to confirm.
-
-### Dependencies
-
-- Example dependency.
-
-### Risks
-
-- Example risk.
-
-### Open Questions
-
-- Example open question.
+```gherkin
+Given <minimum, maximum, cutoff, or threshold condition>
+When <action occurs>
+Then <expected boundary behavior occurs>
+```
 
 ## Quality Checklist
 
-- The artifact is specific and testable.
-- Confirmed facts are separated from assumptions.
-- Dependencies and risks are visible.
-- Decisions needing approval are identified.
-- Traceability references are included.
+- Then statements are observable.
+- Data validation is included where relevant.
+- Error handling is included where relevant.
+- Access/security, integration failure, and audit/logging scenarios are included where relevant.
+- No business rule is invented.

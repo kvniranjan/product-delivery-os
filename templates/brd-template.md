@@ -2,63 +2,43 @@
 
 ## Purpose
 
-Use this template to create a consistent, reviewable business requirements document artifact.
+Create a practical, reviewable business requirements document artifact for delivery teams.
 
 ## When to Use
 
-Use when the team needs a structured document that can be reviewed, tested, traced, and approved.
+Use when the team needs a consistent artifact that can be reviewed by business, technology, QA, and delivery stakeholders.
 
 ## Required Fields
 
 | Field | Placeholder |
 |---|---|
 | Artifact ID | `BUS-001` |
-| Title | Example placeholder title |
+| Title | Example title |
 | Owner | Name or role |
 | Status | Draft / In Review / Approved |
 | Date | YYYY-MM-DD |
-| Source | Requirement, story, stakeholder, or decision reference |
+| Source reference | Requirement, story, decision, or change request |
 
-## Optional Fields
+## Main Content
 
-- Related systems
-- Related decisions
-- Related risks
-- Attachments or links
-- Reviewer notes
-
-## Structured Sections
-
-### Context
-
-Describe the business context in plain language.
-
-### Details
-
-| Item | Description | Owner | Status |
+| Section | Details | Owner | Status |
 |---|---|---|---|
-| Example item | Example placeholder text | Product Owner | Draft |
+| Confirmed facts | Example fact | TBD | Draft |
+| Assumptions | Example assumption to validate | TBD | Draft |
+| Dependencies | Example dependency | TBD | Draft |
+| Risks | Example risk and mitigation | TBD | Draft |
+| Open questions | Example question | TBD | Open |
 
-### Assumptions
+## Decisions Needed
 
-- Example assumption to confirm.
-
-### Dependencies
-
-- Example dependency.
-
-### Risks
-
-- Example risk.
-
-### Open Questions
-
-- Example open question.
+| Decision | Decision owner | Due date | Recommendation | Approval status |
+|---|---|---|---|---|
+| Example decision | TBD | YYYY-MM-DD | TBD | Proposed |
 
 ## Quality Checklist
 
-- The artifact is specific and testable.
+- Artifact has a clear purpose and source reference.
 - Confirmed facts are separated from assumptions.
-- Dependencies and risks are visible.
+- Dependencies, risks, and open questions are visible.
 - Decisions needing approval are identified.
-- Traceability references are included.
+- Output is testable or reviewable where applicable.

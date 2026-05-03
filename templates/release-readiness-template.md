@@ -2,63 +2,50 @@
 
 ## Purpose
 
-Use this template to create a consistent, reviewable release readiness artifact.
+Assess whether a change is ready for go-live using evidence, signoffs, operational readiness, rollback planning, support readiness, and residual risk.
 
 ## When to Use
 
-Use when the team needs a structured document that can be reviewed, tested, traced, and approved.
+Use before go/no-go decisions, release review meetings, UAT signoff, or production deployment approval.
 
 ## Required Fields
 
 | Field | Placeholder |
 |---|---|
-| Artifact ID | `REL-001` |
-| Title | Example placeholder title |
-| Owner | Name or role |
-| Status | Draft / In Review / Approved |
-| Date | YYYY-MM-DD |
-| Source | Requirement, story, stakeholder, or decision reference |
+| Release | Example release name |
+| Change references | `REQ-001`, `STORY-001` |
+| Release date | YYYY-MM-DD |
+| Readiness owner | Name or role |
+| Recommendation | Go / Conditional Go / No-Go / Defer |
 
-## Optional Fields
+## Readiness Checklist
 
-- Related systems
-- Related decisions
-- Related risks
-- Attachments or links
-- Reviewer notes
-
-## Structured Sections
-
-### Context
-
-Describe the business context in plain language.
-
-### Details
-
-| Item | Description | Owner | Status |
+| Area | Status | Evidence | Owner |
 |---|---|---|---|
-| Example item | Example placeholder text | Product Owner | Draft |
+| Requirements signed off | Complete / Incomplete / Blocked | Link or note | TBD |
+| Stories complete | Complete / Incomplete / Blocked | Link or note | TBD |
+| QA status | Passed / Failed / Blocked | Summary | TBD |
+| UAT status | Signed off / Not signed off / Blocked | Summary | TBD |
+| Open defects | None / Low only / Critical / High | Defect summary | TBD |
+| Known limitations | Accepted / Not accepted / Unknown | Limitation list | TBD |
+| Operational readiness | Ready / Not ready | Procedures, training, owners | TBD |
+| Support handover | Ready / Not ready | Runbook and contacts | TBD |
+| Rollback considerations | Ready / Not ready | Rollback plan | TBD |
+| Communication readiness | Ready / Not ready | Stakeholder/customer comms | TBD |
 
-### Assumptions
+## Residual Risk
 
-- Example assumption to confirm.
+| Risk | Severity | Accepted by | Notes |
+|---|---|---|---|
+| Example residual risk | Medium | TBD | TBD |
 
-### Dependencies
+## Go/No-Go Recommendation
 
-- Example dependency.
-
-### Risks
-
-- Example risk.
-
-### Open Questions
-
-- Example open question.
+State the recommendation and evidence. Do not recommend Go if critical defects, missing signoff, incomplete rollback planning, or unresolved production risks remain.
 
 ## Quality Checklist
 
-- The artifact is specific and testable.
-- Confirmed facts are separated from assumptions.
-- Dependencies and risks are visible.
-- Decisions needing approval are identified.
-- Traceability references are included.
+- Readiness facts are separated from recommendation.
+- Critical defects and missing signoffs are visible.
+- Rollback and support handover are covered.
+- Residual risk has an owner or approver.

@@ -2,45 +2,45 @@
 
 ## Purpose
 
-Find gaps across requirements, stories, acceptance criteria, tests, defects, and decisions.
+Find delivery gaps across requirements, stories, acceptance criteria, tests, defects, decisions, and approvals.
 
 ## When to Use
 
-Use this workflow when a delivery team needs a structured, reviewable artifact for traceability check.
+- A team is preparing for refinement, UAT, release readiness, audit review, or scope review.
+- Artifacts exist in multiple places and may not line up.
+- The team needs to know what is blocking readiness.
 
 ## Inputs Needed
 
-- Raw stakeholder input or existing artifact.
-- Product, process, system, and data context.
-- Known constraints, dates, owners, and dependencies.
-- Existing decisions, risks, defects, or open questions.
+- Requirement list
+- Stories and epics
+- Acceptance criteria
+- Test scenarios and defects
+- Decision log and signoff records
+- Definition of Ready or Done
 
 ## Step-by-Step Process
 
-1. Restate the request in plain language.
-2. Separate confirmed facts from assumptions.
-3. Identify missing business rules, stakeholders, systems, and data.
-4. Build the required output sections.
-5. Check testability and traceability.
-6. List risks, dependencies, and open questions.
-7. Recommend next steps without approving business decisions.
+1. Build a traceability map from business objective to requirement, story, acceptance criteria, test scenario, defect, decision, and signoff.
+2. Identify requirements without stories, stories without acceptance criteria, acceptance criteria without tests, tests without requirement links, unlogged decisions, orphaned artifacts, unresolved open questions, and missing approvals.
+3. Assign severity to each gap.
+4. Calculate a simple traceability score based on complete links versus expected links.
+5. Recommend fixes with owners and next actions.
 
 ## Output Format
 
-Use `output-template.md` in this folder unless the user requests another format.
+Use `output-template.md` in this folder. Keep the output concise enough for review, but detailed enough that business, technology, QA, and delivery stakeholders can act on it.
 
 ## Quality Checks
 
-- Identify requirements without stories.
-- Identify stories without acceptance criteria.
-- Identify acceptance criteria without test scenarios.
-- Identify test scenarios without requirement links.
-- Identify decisions not logged.
-- Identify orphaned artifacts and missing signoff.
+- Confirmed facts are separated from assumptions.
+- Dependencies, risks, and open questions are visible.
+- Missing information is flagged instead of filled in silently.
+- The output identifies human decisions or approvals needed.
+- The output can be traced to source input.
 
 ## What Not To Do
 
-- Do not invent missing details.
-- Do not hide uncertainty.
-- Do not mark work ready when critical open questions remain.
-- Do not skip traceability or testability checks.
+- Do not treat partial links as complete traceability.
+- Do not hide approval gaps.
+- Do not mark a release ready based only on completed stories.

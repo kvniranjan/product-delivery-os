@@ -2,63 +2,74 @@
 
 ## Purpose
 
-Use this template to create a consistent, reviewable jira story artifact.
+Create a delivery-ready backlog item that is understandable, testable, traceable, and small enough for planning.
 
 ## When to Use
 
-Use when the team needs a structured document that can be reviewed, tested, traced, and approved.
+Use when a requirement, feature, defect, spike, or technical change needs to become backlog work.
 
 ## Required Fields
 
 | Field | Placeholder |
 |---|---|
-| Artifact ID | `JIR-001` |
-| Title | Example placeholder title |
-| Owner | Name or role |
-| Status | Draft / In Review / Approved |
-| Date | YYYY-MM-DD |
-| Source | Requirement, story, stakeholder, or decision reference |
+| Story ID | `STORY-001` |
+| Epic | `EPIC-001: Example Epic` |
+| Feature | Example feature name |
+| Title | Short action-oriented title |
+| Actor | User, role, system, or operational team |
+| Business value | Why this matters |
+| Priority | High / Medium / Low |
+| Source requirement | `REQ-001` |
+| Readiness status | Ready / Not Ready / Needs Clarification / Needs Splitting / Needs Technical Spike |
 
-## Optional Fields
+## Story
 
-- Related systems
-- Related decisions
-- Related risks
-- Attachments or links
-- Reviewer notes
+As a `<user or system actor>`, I want `<capability or behavior>` so that `<business outcome>`.
 
-## Structured Sections
+For system-to-system work:
 
-### Context
+The `<source system>` must `<send/receive/validate/transform>` `<data or event>` so that `<business or operational outcome>`.
 
-Describe the business context in plain language.
+## Preconditions
 
-### Details
+- Example: User has the required role.
+- Example: Account is active and eligible.
 
-| Item | Description | Owner | Status |
-|---|---|---|---|
-| Example item | Example placeholder text | Product Owner | Draft |
+## Acceptance Criteria
 
-### Assumptions
+```gherkin
+Given <precondition>
+When <action or event occurs>
+Then <observable expected result>
+And <data, audit, notification, or integration outcome>
+```
 
-- Example assumption to confirm.
+## Negative and Exception Scenarios
 
-### Dependencies
+| Scenario | Expected result |
+|---|---|
+| Missing required data | System rejects the action and records a clear reason. |
+| Unauthorized user | Access is denied and audit event is recorded. |
 
-- Example dependency.
+## Dependencies
 
-### Risks
+- System, team, data, environment, decision, or approval dependency.
 
-- Example risk.
+## Out of Scope
 
-### Open Questions
+- Explicitly list related behavior not included in this story.
 
-- Example open question.
+## Test Notes
+
+- Test data needed:
+- Regression areas:
+- UAT owner:
 
 ## Quality Checklist
 
-- The artifact is specific and testable.
-- Confirmed facts are separated from assumptions.
-- Dependencies and risks are visible.
-- Decisions needing approval are identified.
-- Traceability references are included.
+- Business value is clear.
+- Story has acceptance criteria.
+- Expected outcomes are observable.
+- Dependencies and assumptions are explicit.
+- Open questions do not block readiness.
+- Traceability reference is included.

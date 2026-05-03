@@ -2,44 +2,48 @@
 
 ## Purpose
 
-Convert raw stakeholder input into structured, testable requirements.
+Convert raw stakeholder input into structured, testable requirements without inventing business rules.
 
 ## When to Use
 
-Use this workflow when a delivery team needs a structured, reviewable artifact for requirement intake.
+- A stakeholder gives an idea, complaint, email, meeting note, or rough request.
+- A BA/PO needs to prepare a requirement draft for review.
+- The team needs to discover missing business rules, systems, data, users, or approvals.
 
 ## Inputs Needed
 
-- Raw stakeholder input or existing artifact.
-- Product, process, system, and data context.
-- Known constraints, dates, owners, and dependencies.
-- Existing decisions, risks, defects, or open questions.
+- Raw stakeholder statement or meeting notes
+- Business objective or problem being solved
+- Current process or system behavior
+- Known future-state expectation
+- Impacted users, systems, data, reports, and controls
+- Constraints, deadlines, policy, compliance, or operational concerns
 
 ## Step-by-Step Process
 
-1. Restate the request in plain language.
-2. Separate confirmed facts from assumptions.
-3. Identify missing business rules, stakeholders, systems, and data.
-4. Build the required output sections.
-5. Check testability and traceability.
-6. List risks, dependencies, and open questions.
-7. Recommend next steps without approving business decisions.
+1. Restate the request as a problem statement and business objective.
+2. Extract confirmed facts only from supplied input.
+3. Separate current state from future state.
+4. Draft functional and non-functional requirements using observable language.
+5. List business rules only when provided; otherwise mark them as open questions.
+6. Identify missing stakeholders, systems, data, decisions, and approvals.
+7. Create an acceptance criteria starter, not final acceptance criteria if rules are missing.
+8. Assign a readiness status: Draft, Needs Clarification, or Ready for Story Breakdown.
 
 ## Output Format
 
-Use `output-template.md` in this folder unless the user requests another format.
+Use `output-template.md` in this folder. Keep the output concise enough for review, but detailed enough that business, technology, QA, and delivery stakeholders can act on it.
 
 ## Quality Checks
 
-- Do not invent missing business rules.
-- Separate facts from assumptions.
-- Flag ambiguity.
-- Identify missing stakeholders or systems.
-- Make requirements testable.
+- Confirmed facts are separated from assumptions.
+- Dependencies, risks, and open questions are visible.
+- Missing information is flagged instead of filled in silently.
+- The output identifies human decisions or approvals needed.
+- The output can be traced to source input.
 
 ## What Not To Do
 
-- Do not invent missing details.
-- Do not hide uncertainty.
-- Do not mark work ready when critical open questions remain.
-- Do not skip traceability or testability checks.
+- Do not turn stakeholder wishes into approved requirements.
+- Do not hide unclear rules inside polished wording.
+- Do not combine multiple unrelated needs into one requirement.

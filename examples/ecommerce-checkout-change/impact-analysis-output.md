@@ -2,45 +2,64 @@
 
 ## Impacted Applications
 
-- Primary application: TBD
-- Supporting applications: TBD
+| Application | Impact status | Notes |
+|---|---|---|
+| Cart service | Confirmed | Must calculate eligibility and discount. |
+| Checkout UI | Confirmed | Must display discount and ineligible reasons. |
+| Payment service | Suspected | Authorization amount must match discounted order total. |
+| Order service | Confirmed | Must store promotion ID and final totals. |
+| Email service | Suspected | Confirmation email may show discount line. |
+| Analytics/reporting | Confirmed | Promotion usage and payment method reporting required. |
 
 ## Upstream Systems
 
-- Confirm source systems and event triggers.
+- Promotion configuration.
+- Customer profile and stored payment method status.
 
 ## Downstream Systems
 
-- Confirm reporting, notification, servicing, and analytics impact.
+- Order history.
+- Refund processing.
+- Confirmation email.
+- Analytics and promotion performance reporting.
 
 ## Interface/API Impact
 
-- Message fields, validation rules, and error handling require review.
+- Cart response may need discount amount, promotion code, eligibility status, and ineligible reason.
+- Order creation must persist promotion details.
 
 ## Data Impact
 
-- Data mapping and retention impact require confirmation.
+- Store promotion ID, discount amount, payment method type, eligibility result, and exclusion reason where needed for reporting.
 
 ## UI Impact
 
-- User-facing screens may need status, error, or eligibility messaging.
-
-## Batch/EOD Impact
-
-- Not applicable / Unknown until system review.
+- Checkout must show discount before payment authorization.
+- Ineligible payment methods should not show misleading discount messaging.
 
 ## Accounting/GL Impact
 
-- Not applicable / Unknown until finance review.
+- Not applicable / Unknown. Finance should confirm revenue discount reporting rules.
+
+## Batch/EOD Impact
+
+- Not applicable / Unknown. Confirm whether promotion reporting is batch-fed.
 
 ## Reporting Impact
 
-- Operational and analytics reports may need new fields or filters.
+- Promotion usage by payment method.
+- Discount amount by order and day.
+- Exclusion counts for guest checkout, PayPal, gift cards, and renewals.
 
 ## Regression Areas
 
-- Existing happy path, negative path, permissions, reporting, and integration scenarios.
+- Cart totals.
+- Tax and shipping calculation.
+- Payment authorization.
+- Refund calculation.
+- Guest checkout.
+- Subscription renewals.
 
 ## Recommendation
 
-- Proceed with analysis only after open questions are assigned owners.
+Proceed with story slicing by cart eligibility, checkout display, order persistence, and reporting. Confirm refund and finance reporting behavior before final readiness.

@@ -1,3 +1,3 @@
 # Raw Input
 
-A bank needs to place a temporary hold when an inbound payment is flagged for review. The upstream payment system sends the event through middleware to the core banking platform. GL posting, EOD batch processing, reporting, servicing screens, and regression tests may be impacted.
+A regional bank wants to place a temporary hold on inbound same-day payments that are flagged for manual review before funds are made available. The upstream payment capture system sends a payment review event to the integration layer, which routes it to the core banking platform. Operations needs servicing staff to see the hold reason, release status, and review timestamp. Finance wants confirmation that GL posting, suspense handling, reversals, and EOD reconciliation are not broken. The release window is tight, and UAT must include payment posting, hold release, reversal, EOD batch, reporting, and customer servicing scenarios.

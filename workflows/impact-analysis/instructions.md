@@ -2,44 +2,47 @@
 
 ## Purpose
 
-Analyze system, data, operational, delivery, and regression impact.
+Identify business, system, data, integration, operational, testing, reporting, GL, EOD, and release impact before delivery commits.
 
 ## When to Use
 
-Use this workflow when a delivery team needs a structured, reviewable artifact for impact analysis.
+- A change touches more than one system, data flow, team, control, report, or operational process.
+- A change request needs scope, timeline, testing, or risk assessment.
+- A banking, fintech, enterprise, or regulated change may have downstream consequences.
 
 ## Inputs Needed
 
-- Raw stakeholder input or existing artifact.
-- Product, process, system, and data context.
-- Known constraints, dates, owners, and dependencies.
-- Existing decisions, risks, defects, or open questions.
+- Change description and requirement references
+- System landscape with upstream and downstream systems
+- Interface/API/file/message details if known
+- Data fields, mappings, reports, and retention needs
+- Operational procedures, support teams, and controls
+- Testing scope, environments, and release timing
 
 ## Step-by-Step Process
 
-1. Restate the request in plain language.
-2. Separate confirmed facts from assumptions.
-3. Identify missing business rules, stakeholders, systems, and data.
-4. Build the required output sections.
-5. Check testability and traceability.
-6. List risks, dependencies, and open questions.
-7. Recommend next steps without approving business decisions.
+1. Classify each impact as Confirmed, Suspected, Not applicable, or Unknown.
+2. Map upstream sources, triggers, timing, and owners.
+3. Map downstream consumers, reports, notifications, analytics, and operations.
+4. Check interface/API, data mapping, UI, security, access, audit, batch/EOD, GL/accounting, reporting, and UAT impact.
+5. Identify regression areas including existing happy path, negative path, failure handling, permissions, reporting, and reconciliation.
+6. List risks with severity and likely owner.
+7. Give a recommendation for next analysis action, not a business approval.
 
 ## Output Format
 
-Use `output-template.md` in this folder unless the user requests another format.
+Use `output-template.md` in this folder. Keep the output concise enough for review, but detailed enough that business, technology, QA, and delivery stakeholders can act on it.
 
 ## Quality Checks
 
-- Always include upstream/downstream analysis.
-- Always include regression impact.
-- Include accounting/GL and EOD sections even if marked Not applicable / Unknown.
-- Separate confirmed impacts from suspected impacts.
-- Include follow-up questions where impact is unclear.
+- Confirmed facts are separated from assumptions.
+- Dependencies, risks, and open questions are visible.
+- Missing information is flagged instead of filled in silently.
+- The output identifies human decisions or approvals needed.
+- The output can be traced to source input.
 
 ## What Not To Do
 
-- Do not invent missing details.
-- Do not hide uncertainty.
-- Do not mark work ready when critical open questions remain.
-- Do not skip traceability or testability checks.
+- Do not skip GL/accounting or EOD/batch sections because they feel unlikely. Mark them Not applicable or Unknown.
+- Do not present suspected impact as confirmed.
+- Do not recommend delivery dates without test and dependency evidence.

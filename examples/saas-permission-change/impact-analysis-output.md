@@ -2,45 +2,51 @@
 
 ## Impacted Applications
 
-- Primary application: TBD
-- Supporting applications: TBD
+| Application | Impact status | Notes |
+|---|---|---|
+| Admin UI | Confirmed | New Team Admin actions and disabled restricted actions. |
+| Authorization service | Confirmed | Role checks need update. |
+| User management service | Confirmed | Invite, deactivate, and role assignment behavior changes. |
+| Billing service | Confirmed | Team Admin must be denied billing access. |
+| Audit logging | Confirmed | Permission changes and denied attempts require logging. |
 
 ## Upstream Systems
 
-- Confirm source systems and event triggers.
+- Identity provider group or role mapping if roles sync externally.
 
 ## Downstream Systems
 
-- Confirm reporting, notification, servicing, and analytics impact.
+- Audit export.
+- Notification service for invited/deactivated users.
+- Analytics for admin actions.
 
-## Interface/API Impact
+## Security/Access Impact
 
-- Message fields, validation rules, and error handling require review.
+- Team Admin may manage only users in their own team.
+- Team Admin must be blocked from billing, ownership transfer, audit export, and org security settings.
+- Denied access attempts should be observable and auditable.
 
 ## Data Impact
 
-- Data mapping and retention impact require confirmation.
-
-## UI Impact
-
-- User-facing screens may need status, error, or eligibility messaging.
-
-## Batch/EOD Impact
-
-- Not applicable / Unknown until system review.
+- Role model may need team-scoped role assignment.
+- Audit records need actor, target user, team, action, timestamp, and result.
 
 ## Accounting/GL Impact
 
-- Not applicable / Unknown until finance review.
+- Not applicable.
 
-## Reporting Impact
+## Batch/EOD Impact
 
-- Operational and analytics reports may need new fields or filters.
+- Not applicable unless audit export or analytics are batch-generated.
 
 ## Regression Areas
 
-- Existing happy path, negative path, permissions, reporting, and integration scenarios.
+- Organization Admin permissions.
+- Standard user restrictions.
+- Cross-team access boundaries.
+- Audit log completeness.
+- Invitation and deactivation emails.
 
 ## Recommendation
 
-- Proceed with analysis only after open questions are assigned owners.
+Proceed with a technical design review for role scoping and audit logging before marking stories ready.

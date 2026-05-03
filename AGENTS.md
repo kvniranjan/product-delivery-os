@@ -2,6 +2,8 @@
 
 This repo is AI-agnostic. Codex may be used to build and maintain it, but Codex is not the core target.
 
+## Source of Truth
+
 The source of truth lives in:
 
 - `core/`
@@ -10,17 +12,32 @@ The source of truth lives in:
 - `templates/`
 - `prompt-packs/`
 
-Adapters translate the source material into tool-specific formats. Do not manually edit generated `dist/` outputs.
+Adapters under `adapters/` translate source material into tool-specific formats. Generated `dist/` output is build output and must not be edited manually.
 
-Maintain attribution to Nate Herk's AIS-OS inspiration in `README.md`. Do not copy Nate Herk's branding, trademarked framework names, or framework language as this project's branding.
+## Contribution Rules
 
-Do not add proprietary data, client data, company data, production data, credentials, transcripts, or internal system details.
+- Maintain attribution to Nate Herk's AIS-OS inspiration in `README.md`.
+- Do not copy Nate Herk's branding, trademarked framework names, or framework language as this project's branding.
+- Do not add proprietary data, client data, company data, production data, customer data, credentials, transcripts, recordings, internal URLs, or non-public system names.
+- Keep examples fictional and clearly sanitized.
+- Prefer small, coherent changes.
+- Keep language practical for real Business Analysts and Product Owners.
 
-Run validation before completing changes:
+## BA/PO Quality Rules
+
+- Requirements must be testable.
+- Stories must include acceptance criteria.
+- Impact analysis must include upstream, downstream, interface, data, regression, GL/accounting, EOD/batch, reporting, security, operational, and UAT sections.
+- Decisions must separate recommendation from approval.
+- Release readiness must not recommend Go when critical defects, missing signoff, or unresolved production risks remain.
+
+## Validation
+
+Run these before completing changes:
 
 ```bash
-python scripts/validate_repo.py
+python3 scripts/validate_repo.py
 pytest
 ```
 
-Prefer small, coherent changes. Keep language practical for real Business Analysts and Product Owners.
+If `pytest` is not installed, install it in your environment or use a temporary isolated install. Do not commit local caches, generated `dist/`, or private `workspace/` content.

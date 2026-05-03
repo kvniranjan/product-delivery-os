@@ -2,63 +2,56 @@
 
 ## Purpose
 
-Use this template to create a consistent, reviewable impact analysis artifact.
+Assess the likely effect of a change across applications, integrations, data, operations, controls, testing, reporting, GL/accounting, EOD/batch, and release readiness.
 
 ## When to Use
 
-Use when the team needs a structured document that can be reviewed, tested, traced, and approved.
+Use before committing scope, timeline, testing approach, or release recommendation for a change with cross-team or cross-system impact.
 
 ## Required Fields
 
 | Field | Placeholder |
 |---|---|
-| Artifact ID | `IMP-001` |
-| Title | Example placeholder title |
-| Owner | Name or role |
-| Status | Draft / In Review / Approved |
+| Impact ID | `IA-001` |
+| Change reference | `REQ-001` or `CR-001` |
+| Analyst | Name or role |
+| Status | Draft / In Review / Approved for Planning |
 | Date | YYYY-MM-DD |
-| Source | Requirement, story, stakeholder, or decision reference |
+| Recommendation | Proceed / Clarify / Spike / Defer |
 
-## Optional Fields
+## Impact Summary
 
-- Related systems
-- Related decisions
-- Related risks
-- Attachments or links
-- Reviewer notes
-
-## Structured Sections
-
-### Context
-
-Describe the business context in plain language.
-
-### Details
-
-| Item | Description | Owner | Status |
+| Area | Status | Notes | Owner |
 |---|---|---|---|
-| Example item | Example placeholder text | Product Owner | Draft |
+| Impacted applications | Confirmed / Suspected / Unknown / N/A | Example app impact | TBD |
+| Upstream systems | Confirmed / Suspected / Unknown / N/A | Source systems and triggers | TBD |
+| Downstream systems | Confirmed / Suspected / Unknown / N/A | Consumers, reports, notifications | TBD |
+| Interface/API/file | Confirmed / Suspected / Unknown / N/A | Contract, mapping, errors | TBD |
+| Data | Confirmed / Suspected / Unknown / N/A | Fields, retention, migration | TBD |
+| UI | Confirmed / Suspected / Unknown / N/A | Screens, labels, permissions | TBD |
+| Batch/EOD | Confirmed / Suspected / Unknown / N/A | Cutoff, jobs, reconciliation | TBD |
+| Accounting/GL | Confirmed / Suspected / Unknown / N/A | Posting, reversal, settlement | TBD |
+| Reporting | Confirmed / Suspected / Unknown / N/A | Operational and analytics reports | TBD |
+| Security/access | Confirmed / Suspected / Unknown / N/A | Roles, audit, entitlements | TBD |
+| Operations/support | Confirmed / Suspected / Unknown / N/A | Procedures, training, handover | TBD |
+| UAT/regression | Confirmed / Suspected / Unknown / N/A | Coverage and owners | TBD |
 
-### Assumptions
+## Risks
 
-- Example assumption to confirm.
+| Risk | Severity | Mitigation | Owner |
+|---|---|---|---|
+| Example risk | High / Medium / Low | Example mitigation | TBD |
 
-### Dependencies
+## Open Questions
 
-- Example dependency.
-
-### Risks
-
-- Example risk.
-
-### Open Questions
-
-- Example open question.
+| Question | Needed from | Due by | Blocks readiness? |
+|---|---|---|---|
+| Example question | Product / Tech / Ops | YYYY-MM-DD | Yes / No |
 
 ## Quality Checklist
 
-- The artifact is specific and testable.
-- Confirmed facts are separated from assumptions.
-- Dependencies and risks are visible.
-- Decisions needing approval are identified.
-- Traceability references are included.
+- Upstream and downstream systems are covered.
+- GL/accounting and EOD/batch are included or explicitly marked N/A/Unknown.
+- Regression and UAT impact are included.
+- Confirmed and suspected impacts are not mixed.
+- Recommendation does not approve the change.

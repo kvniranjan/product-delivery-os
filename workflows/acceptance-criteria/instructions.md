@@ -2,43 +2,46 @@
 
 ## Purpose
 
-Generate observable, testable acceptance criteria using Gherkin where helpful.
+Create observable acceptance criteria that developers, testers, BAs, POs, and stakeholders can review.
 
 ## When to Use
 
-Use this workflow when a delivery team needs a structured, reviewable artifact for acceptance criteria.
+- A requirement or story needs testable acceptance conditions.
+- Existing criteria are vague or only cover the happy path.
+- The change includes access, integration, audit, or error handling behavior.
 
 ## Inputs Needed
 
-- Raw stakeholder input or existing artifact.
-- Product, process, system, and data context.
-- Known constraints, dates, owners, and dependencies.
-- Existing decisions, risks, defects, or open questions.
+- Story or requirement
+- Business rules and validation rules
+- User roles and permissions
+- Data fields and examples
+- Integration points and failure modes
+- Audit, reporting, compliance, or operational expectations
 
 ## Step-by-Step Process
 
-1. Restate the request in plain language.
-2. Separate confirmed facts from assumptions.
-3. Identify missing business rules, stakeholders, systems, and data.
-4. Build the required output sections.
-5. Check testability and traceability.
-6. List risks, dependencies, and open questions.
-7. Recommend next steps without approving business decisions.
+1. Identify the behavior under test and the actor or system trigger.
+2. Write positive scenarios first using Gherkin where helpful.
+3. Add negative, boundary, exception, access/security, integration failure, audit/logging, and regression scenarios where relevant.
+4. Make each Then statement observable through UI, API response, data state, audit log, report, notification, or error message.
+5. Flag missing expected outcomes, validation rules, test data, or business decisions.
+6. Link criteria back to the story or requirement.
 
 ## Output Format
 
-Use `output-template.md` in this folder unless the user requests another format.
+Use `output-template.md` in this folder. Keep the output concise enough for review, but detailed enough that business, technology, QA, and delivery stakeholders can act on it.
 
 ## Quality Checks
 
-- Avoid vague Then statements like system works correctly.
-- Make expected outcomes observable.
-- Include data validation where relevant.
-- Include error handling where relevant.
+- Confirmed facts are separated from assumptions.
+- Dependencies, risks, and open questions are visible.
+- Missing information is flagged instead of filled in silently.
+- The output identifies human decisions or approvals needed.
+- The output can be traced to source input.
 
 ## What Not To Do
 
-- Do not invent missing details.
-- Do not hide uncertainty.
-- Do not mark work ready when critical open questions remain.
-- Do not skip traceability or testability checks.
+- Do not write vague outcomes like system works correctly.
+- Do not skip negative or exception behavior.
+- Do not invent validation thresholds, messages, or audit rules.
