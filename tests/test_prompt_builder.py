@@ -27,3 +27,10 @@ def test_prompt_builder_includes_workflow_source_material():
     assert workflow.output_template.strip() in prompt
     assert workflow.checklist.strip() in prompt
     assert "Assess this change." in prompt
+
+
+def test_workflow_page_uses_stable_state_keys():
+    source = __import__("pathlib").Path("app/components/ui_helpers.py").read_text(encoding="utf-8")
+    assert "user_input_key = f\"{workflow.id}_user_input\"" in source
+    assert "optional_context_key = f\"{workflow.id}_optional_context\"" in source
+    assert "st.session_state.get(user_input_key" in source

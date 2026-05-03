@@ -60,13 +60,20 @@ def render_workflow_page(workflow: Workflow) -> None:
     render_privacy_warning()
     render_workflow_header(workflow)
 
-    user_input = st.text_area("Raw input or project context", height=220)
-    optional_context = st.text_area("Optional additional context", height=140)
+    user_input_key = f"{workflow.id}_user_input"
+    optional_context_key = f"{workflow.id}_optional_context"
+    prompt_key = f"{workflow.id}_prompt"
+    user_input = st.text_area("Raw input or project context", height=220, key=user_input_key)
+    optional_context = st.text_area("Optional additional context", height=140, key=optional_context_key)
 
     if st.button("Generate self-contained prompt", type="primary"):
-        st.session_state[f"{workflow.id}_prompt"] = build_prompt(workflow, user_input, optional_context)
+        st.session_state[prompt_key] = build_prompt(
+            workflow,
+            st.session_state.get(user_input_key, user_input),
+            st.session_state.get(optional_context_key, optional_context),
+        )
 
-    prompt = st.session_state.get(f"{workflow.id}_prompt")
+    prompt = st.session_state.get(prompt_key)
     if prompt:
         render_prompt_box(prompt, key=f"{workflow.id}_prompt_box")
 
