@@ -65,6 +65,25 @@ PRIVACY_MARKERS = [
     "credentials",
     "workspace/",
 ]
+REQUIRED_PROMPT_SECTIONS = [
+    "## Role Definition",
+    "## Workflow Name",
+    "## Purpose",
+    "## When to Use",
+    "## Required Inputs",
+    "## Step-by-Step Workflow Instructions",
+    "## Quality Rules",
+    "## Output Format",
+    "## Checklist",
+    "## User Input Placeholders",
+]
+PROMPT_PRIVACY_MARKERS = [
+    "Protect privacy",
+    "client data",
+    "customer data",
+    "credentials",
+    "production data",
+]
 
 
 def read_manifest(path: Path) -> dict:
@@ -144,6 +163,43 @@ def validate() -> list[str]:
         for phrase in generic_phrases:
             if phrase in text:
                 fail(errors, f"{path.relative_to(ROOT)} still contains generic placeholder phrase: {phrase}")
+    prompt_dir = ROOT / "prompt-packs" / "generic-chat" / "workflow-prompts"
+    for workflow in WORKFLOWS:
+        prompt = prompt_dir / f"{workflow}.md"
+        if not prompt.is_file():
+            fail(errors, f"Missing generic workflow prompt: {prompt.relative_to(ROOT)}")
+            continue
+        text = prompt.read_text(encoding="utf-8")
+        section_positions = []
+        for section in REQUIRED_PROMPT_SECTIONS:
+            position = text.find(section)
+            if position == -1:
+                fail(errors, f"{prompt.relative_to(ROOT)} missing section: {section}")
+            section_positions.append(position)
+        found_positions = [position for position in section_positions if position >= 0]
+        if found_positions != sorted(found_positions):
+            fail(errors, f"{prompt.relative_to(ROOT)} required sections are out of order")
+        for marker in PROMPT_PRIVACY_MARKERS:
+            if marker not in text:
+                fail(errors, f"{prompt.relative_to(ROOT)} missing privacy marker: {marker}")
+        if "```text" not in text:
+            fail(errors, f"{prompt.relative_to(ROOT)} missing fenced user input placeholder")
+        old_dependency_phrases = [
+            f"Use the `{workflow}` workflow",
+            "Use the Product Delivery OS workflow",
+        ]
+        for phrase in old_dependency_phrases:
+            if phrase in text:
+                fail(errors, f"{prompt.relative_to(ROOT)} relies on old dependency-style wording: {phrase}")
+    manual_test_plan = ROOT / "tests" / "manual-test-plan.md"
+    if not manual_test_plan.is_file():
+        fail(errors, "Missing tests/manual-test-plan.md")
+    else:
+        manual_text = manual_test_plan.read_text(encoding="utf-8")
+        if "paste the full workflow prompt" not in manual_text:
+            fail(errors, "tests/manual-test-plan.md must tell users to paste the full workflow prompt")
+        if "Do not merely type" not in manual_text:
+            fail(errors, "tests/manual-test-plan.md must warn against referencing only the workflow name")
     if not (ROOT / "LICENSE").is_file():
         fail(errors, "LICENSE missing")
     return errors
