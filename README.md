@@ -110,6 +110,30 @@ For Codex, Claude Code, or Cursor:
 3. Use adapter skills or rules as workflow shortcuts.
 4. Do not edit generated `dist/` output manually.
 
+## Optional Local GUI
+
+Product Delivery OS includes an optional local Streamlit GUI for non-technical Business Analysts and Product Owners.
+
+The GUI helps you:
+
+- Select a workflow.
+- Enter raw input or project context.
+- Generate a complete, self-contained prompt.
+- Copy the prompt into your preferred AI tool.
+- Paste the AI response back into the app.
+- Save and export Markdown artifacts locally.
+
+The GUI does not call OpenAI, Claude, Gemini, or any other AI API. It does not require an AI API key, login, database, or SaaS setup. It preserves the AI-agnostic workflow model: you copy prompts into whatever AI tool you choose.
+
+Run it locally:
+
+```bash
+pip install -r requirements.txt
+streamlit run app/streamlit_app.py
+```
+
+The GUI saves artifacts locally under `workspace/`, which is gitignored.
+
 ## Privacy Warning
 
 Do not commit or paste sensitive information into public AI chats or this public repo. That includes client data, company data, customer data, production data, credentials, API keys, internal architecture diagrams, meeting transcripts, recordings, non-public financial data, regulatory findings, and proprietary system names.

@@ -84,6 +84,28 @@ PROMPT_PRIVACY_MARKERS = [
     "credentials",
     "production data",
 ]
+REQUIRED_APP_COMPONENTS = [
+    "workflow_loader.py",
+    "prompt_builder.py",
+    "workspace_manager.py",
+    "markdown_exporter.py",
+    "ui_helpers.py",
+]
+REQUIRED_APP_PAGES = [
+    "01_Home.py",
+    "02_Onboard_Workspace.py",
+    "03_Requirement_Intake.py",
+    "04_Impact_Analysis.py",
+    "05_Story_Builder.py",
+    "06_Acceptance_Criteria.py",
+    "07_Backlog_Refinement.py",
+    "08_Test_Scenario_Builder.py",
+    "09_Stakeholder_Brief.py",
+    "10_Traceability_Check.py",
+    "11_Change_Request_Analysis.py",
+    "12_Release_Readiness.py",
+    "13_Export_Center.py",
+]
 
 
 def read_manifest(path: Path) -> dict:
@@ -108,6 +130,22 @@ def validate() -> list[str]:
     for folder in ["core", "role-packs", "workflows", "templates", "prompt-packs", "adapters", "workspace.example", "examples", "scripts", "tests"]:
         if not (ROOT / folder).is_dir():
             fail(errors, f"Missing folder: {folder}")
+    if not (ROOT / "app").is_dir():
+        fail(errors, "Missing folder: app")
+    if not (ROOT / "app" / "streamlit_app.py").is_file():
+        fail(errors, "Missing app/streamlit_app.py")
+    for component in REQUIRED_APP_COMPONENTS:
+        if not (ROOT / "app" / "components" / component).is_file():
+            fail(errors, f"Missing app component: {component}")
+    for page in REQUIRED_APP_PAGES:
+        if not (ROOT / "app" / "pages" / page).is_file():
+            fail(errors, f"Missing app page: {page}")
+    requirements = ROOT / "requirements.txt"
+    pyproject = ROOT / "pyproject.toml"
+    has_streamlit_requirement = requirements.is_file() and "streamlit" in requirements.read_text(encoding="utf-8")
+    has_streamlit_pyproject = pyproject.is_file() and "streamlit" in pyproject.read_text(encoding="utf-8")
+    if not has_streamlit_requirement and not has_streamlit_pyproject:
+        fail(errors, "Missing streamlit dependency in requirements.txt or pyproject.toml")
     for workflow in WORKFLOWS:
         base = ROOT / "workflows" / workflow
         if not base.is_dir():
@@ -145,6 +183,8 @@ def validate() -> list[str]:
         fail(errors, "README missing Inspiration attribution")
     if "Privacy Warning" not in readme:
         fail(errors, "README missing Privacy warning")
+    if "Optional Local GUI" not in readme or "streamlit run app/streamlit_app.py" not in readme:
+        fail(errors, "README missing Optional Local GUI run instructions")
     for marker in SUPPORTED_TOOL_MARKERS:
         if marker not in readme:
             fail(errors, f"README missing supported tool marker: {marker}")
