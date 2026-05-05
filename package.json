@@ -1,0 +1,41 @@
+{
+  "name": "product-delivery-os-beta",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "eslint .",
+    "test:unit": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "convex:codegen": "convex codegen"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.93.0",
+    "@clerk/clerk-react": "^5.53.2",
+    "@clerk/nextjs": "^6.35.2",
+    "@google/genai": "^1.51.0",
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "convex": "^1.28.0",
+    "lucide-react": "^0.548.0",
+    "next": "^16.0.1",
+    "openai": "^6.36.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.3.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.16",
+    "@types/node": "^24.9.2",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "eslint": "^9.38.0",
+    "eslint-config-next": "^16.0.1",
+    "tailwindcss": "^4.1.16",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.5"
+  }
+}

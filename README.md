@@ -134,6 +134,139 @@ streamlit run app/streamlit_app.py
 
 The GUI saves artifacts locally under `workspace/`, which is gitignored.
 
+## Hosted Beta Web App
+
+Product Delivery OS also includes a hosted beta web app built with Next.js, Convex, Clerk, TypeScript, and Tailwind CSS.
+
+The beta app lets Business Analysts and Product Owners:
+
+- Sign up and log in with Clerk.
+- Create sanitized beta projects.
+- Run Requirement Intake, Impact Analysis, Story Builder, and Acceptance Criteria workflows from `workflows/`.
+- Generate complete, self-contained prompts.
+- Copy prompts into their preferred AI tool.
+- Paste AI output back into the app.
+- Save workflow runs and project artifacts.
+- Submit workflow feedback.
+- View aggregate feedback and workflow usage as an admin.
+
+The hosted beta supports both the original AI-agnostic copy/paste workflow and an optional in-app AI workflow. When AI provider keys are configured, users can generate structured delivery artifacts directly inside the workflow runner, review the AI Draft, edit it, and save it as a project artifact without pasting output from an external chat tool.
+
+Required environment variables:
+
+```bash
+NEXT_PUBLIC_CONVEX_URL=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+ADMIN_EMAILS=
+```
+
+Optional server-only AI provider variables:
+
+```bash
+OPENAI_API_KEY=
+ANTHROPIC_API_KEY=
+GOOGLE_GEMINI_API_KEY=
+
+AI_KEY_ENCRYPTION_SECRET=
+
+AI_DEFAULT_PROVIDER=openai
+OPENAI_MODEL=gpt-4o-mini
+ANTHROPIC_MODEL=claude-3-5-sonnet-latest
+GEMINI_MODEL=gemini-1.5-pro
+```
+
+Do not prefix provider API keys with `NEXT_PUBLIC_`. Provider calls run only on the server. GUI-saved user keys are validated by Convex actions, encrypted with `AI_KEY_ENCRYPTION_SECRET`, and never displayed back to the browser.
+
+For local Convex development, set the encryption secret in the Convex environment:
+
+```bash
+npx convex env set AI_KEY_ENCRYPTION_SECRET "use-a-random-secret-at-least-32-characters"
+```
+
+If you want server fallback keys in Convex actions, set those in Convex too:
+
+```bash
+npx convex env set OPENAI_API_KEY "..."
+npx convex env set ANTHROPIC_API_KEY "..."
+npx convex env set GOOGLE_GEMINI_API_KEY "..."
+```
+
+Convex authentication with Clerk also requires setting the Clerk JWT issuer domain in the Convex deployment environment:
+
+```bash
+CLERK_JWT_ISSUER_DOMAIN=
+```
+
+Run the beta app locally:
+
+```bash
+npm install
+npx convex dev
+npm run dev
+```
+
+Validate the web app:
+
+```bash
+npm run typecheck
+npm run lint
+npm run build
+```
+
+### In-App AI Delivery Artifacts
+
+The AI integration is provider-agnostic. UI code calls the Product Delivery OS backend route, the route calls `src/lib/ai`, and provider-specific SDK logic stays isolated in:
+
+- `src/lib/ai/clients/openai.ts`
+- `src/lib/ai/clients/anthropic.ts`
+- `src/lib/ai/clients/gemini.ts`
+
+Users can also configure provider API keys in the app under **Manage Account**. The screen requires a successful provider validation before enabling save. Saving re-validates the key server-side, encrypts it, and stores only a masked preview such as `•••• 1234` for display.
+
+Provider selection order:
+
+1. Explicit provider selected in the workflow runner.
+2. `AI_DEFAULT_PROVIDER`.
+3. OpenAI when `OPENAI_API_KEY` is configured.
+4. Controlled configuration error when no provider is configured.
+
+The app does not silently fail over from one selected provider to another. If the selected provider is missing its API key, the API returns: `AI provider is not configured. Please set the required API key.`
+
+Sample raw input:
+
+```text
+Stakeholder asks to add approval routing for checkout refunds above $500. Ops needs audit visibility, QA wants regression coverage for refund status updates, and Finance needs to confirm reporting impact before release.
+```
+
+The AI response is strict JSON with summary, facts, assumptions, open questions, requirements, impacted systems, dependencies, risks, Given/When/Then acceptance criteria, test scenarios, Jira story drafts, stakeholder update, next actions, and confidence notes. AI output is saved as an AI Draft first. Users must review or edit it before treating it as delivery-ready.
+
+Manual AI test cases:
+
+1. Submit valid raw stakeholder email using the default provider.
+2. Submit valid raw input using OpenAI.
+3. Submit valid raw input using Anthropic.
+4. Submit valid raw input using Gemini.
+5. Submit empty raw input.
+6. Run with a missing API key.
+7. Simulate invalid AI JSON response.
+8. Save a reviewed AI Draft.
+9. Confirm existing prompt copy/paste workflows still work.
+
+Known limitations:
+
+- The first AI Draft editor is JSON-first, not a fully custom artifact editor for every section.
+- Provider schema enforcement still relies on runtime validation after provider response parsing.
+- Real project data should remain sanitized unless your organization explicitly approves use of the configured AI provider.
+
+Future enhancements:
+
+- Section-level artifact editors for requirements, risks, acceptance criteria, and Jira stories.
+- Provider model selection per workspace.
+- Audit controls for AI generation history and review signoff.
+
+Beta privacy warning: do not enter confidential company, client, production, regulated, or customer data during beta testing. Use sanitized requirements unless your organization permits use.
+
 ## Privacy Warning
 
 Do not commit or paste sensitive information into public AI chats or this public repo. That includes client data, company data, customer data, production data, credentials, API keys, internal architecture diagrams, meeting transcripts, recordings, non-public financial data, regulatory findings, and proprietary system names.

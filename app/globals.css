@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f3ea;
+  --foreground: #111827;
+  --card: #fffdf7;
+  --card-foreground: #111827;
+  --muted: #ece7da;
+  --muted-foreground: #5b6472;
+  --border: #d8d1c3;
+  --primary: #111827;
+  --primary-foreground: #ffffff;
+  --accent: #006d77;
+  --accent-foreground: #ffffff;
+  --accent-soft: #d8f3f0;
+  --destructive: #b91c1c;
+  --ring: #006d77;
+  --shadow-soft: 0 18px 50px rgb(17 24 39 / 0.08);
+  --shadow-command: 0 24px 70px rgb(17 24 39 / 0.16);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-destructive: var(--destructive);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-open-sans);
+  --font-heading: var(--font-poppins);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    linear-gradient(90deg, rgb(17 24 39 / 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgb(17 24 39 / 0.03) 1px, transparent 1px),
+    var(--background);
+  background-size: 32px 32px;
+  color: var(--foreground);
+  font-family: var(--font-open-sans), system-ui, sans-serif;
+  min-height: 100dvh;
+}
+
+button,
+a,
+select,
+input,
+textarea {
+  touch-action: manipulation;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ring) 75%, white);
+  outline-offset: 2px;
+}
+
+.command-shadow {
+  box-shadow: var(--shadow-command);
+}
+
+.soft-shadow {
+  box-shadow: var(--shadow-soft);
+}
+
+.workflow-intake {
+  --workflow: #2563eb;
+  --workflow-soft: #dbeafe;
+}
+
+.workflow-impact {
+  --workflow: #b45309;
+  --workflow-soft: #fef3c7;
+}
+
+.workflow-story {
+  --workflow: #7c3aed;
+  --workflow-soft: #ede9fe;
+}
+
+.workflow-criteria {
+  --workflow: #15803d;
+  --workflow-soft: #dcfce7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

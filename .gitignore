@@ -11,4 +11,9 @@ exports/
 __pycache__/
 .pytest_cache/
 dist/
+.next/
+node_modules/
+coverage/
+*.tsbuildinfo
 .DS_Store
+graphify-out/
